@@ -1,11 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const CLIENT_DIR = path.join(__dirname, 'client');
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 3000;
 
 module.exports = {
   mode: 'development',
@@ -32,17 +33,13 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.(s?css)$/,
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader'
           },
           {
-            loader: 'css-loader',
-            options: {
-              camelCase: true,
-              sourceMap: true
-            }
+            loader: 'css-loader'
           }
         ]
       }
@@ -52,8 +49,7 @@ module.exports = {
     host: 'localhost',
     port,
     historyApiFallback: true,
-    contentBase: DIST_DIR,
-    hot: true
+    contentBase: DIST_DIR
   },
   optimization: {
     splitChunks: {
@@ -72,6 +68,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new CopyWebpackPlugin([{ from: '**/**/**/*.css', to: '[name].css' }])
   ]
 };
