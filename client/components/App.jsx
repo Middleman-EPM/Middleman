@@ -11,7 +11,7 @@ class App extends Component {
       <div id="main">
         <div className="title">
           <h1>Welcome to Middleman!</h1>
-          <div>
+          <div className="graph-container">
             <GraphContainer/>
           </div>
         </div>
