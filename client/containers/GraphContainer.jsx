@@ -1,28 +1,7 @@
 import React, {Component} from 'react';
 import PerformanceGraph from '../components/PerformanceGraph';
-import RouteMap from '../components/RouteMap';
-// import worlddata from '../components/World';
-// import { range } from 'd3-array';
-// import { scaleThreshold } from 'd3-scale';
-// import { geoCentroid } from 'd3-geo';
-// import Brush from '../components/Brush';
-// import StreamGraph from '../components/StreamGraph.js';
-// import StatLine from '../components/StatLine';
-// import '../components/App.css'
-// import WorldMap from '../components/WorldMap';
+import RouteMap from '../components/RouteMap'
 
-
-// const appdata = worlddata.features
-//   .filter(d => geoCentroid(d)[0] < -20)
-
-// appdata
-//   .forEach((d, i) => {
-//     const offset = Math.random()
-//     d.launchday = i
-//     d.data = range(30).map((p, q) => q < i ? 0 : Math.random() * 2 + offset)
-//   })
-
-// const colorScale = scaleThreshold().domain([5, 10, 20, 30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
 class GraphContainer extends Component {
   constructor(props){
@@ -37,7 +16,8 @@ class GraphContainer extends Component {
   }
 
   onHover(d) {
-    this.setState({ hover: d.id })
+    this.setState({ hover: d })
+    console.log(d)
   }
 
   onBrush(d) {
@@ -47,25 +27,20 @@ class GraphContainer extends Component {
   componentDidMount() {
     window.addEventListener('resize', this.onResize, false)
     this.onResize()
-    // console.log(worlddata.features)
-    // console.log(copy)
+
   }
 
   render() {
-    // const filteredAppdata = appdata
-    //   .filter((d, i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return <div className="graphcontainer">
+        <div id="testing"></div>
         <div className="performance">
           <PerformanceGraph />
         </div>
-        <div className="routemap">
-          <RouteMap />
+        <div>
+          <h1> Routes & Middleware Map</h1>
         </div>
-        <div className="worldmap">
-          {/* <StatLine allData={appdata} filteredData={filteredAppdata} />
-          <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
-          {/* <Brush changeBrush={this.onBrush} size={[this.state.screenWidth, 50]} /> */}
-          {/* <WorldMap hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth / 2, this.state.screenHeight / 2]} /> */}
+        <div className="routemap">
+          <RouteMap onHover={this.onHover}/>
         </div>
       </div>;
   }
