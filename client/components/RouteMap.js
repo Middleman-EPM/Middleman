@@ -13,37 +13,166 @@ export default class RouteMap extends Component {
   //   this.makeForceChart();
   // }
 
+
   makeForceChart() {
 
     const links = [
-      { source: "Microsoft", target: "Amazon", type: "licensing" },
-      { source: "Microsoft", target: "HTC", type: "licensing" },
-      { source: "Samsung", target: "Apple", type: "suit" },
-      { source: "Motorola", target: "Apple", type: "suit" },
-      { source: "Nokia", target: "Apple", type: "resolved" },
-      { source: "HTC", target: "Apple", type: "suit" },
-      { source: "Kodak", target: "Apple", type: "suit" },
-      { source: "Microsoft", target: "Barnes & Noble", type: "suit" },
-      { source: "Microsoft", target: "Foxconn", type: "suit" },
-      { source: "Oracle", target: "Google", type: "suit" },
-      { source: "Apple", target: "HTC", type: "suit" },
-      { source: "Microsoft", target: "Inventec", type: "suit" },
-      { source: "Samsung", target: "Kodak", type: "resolved" },
-      { source: "LG", target: "Kodak", type: "resolved" },
-      { source: "RIM", target: "Kodak", type: "suit" },
-      { source: "Sony", target: "LG", type: "suit" },
-      { source: "Kodak", target: "LG", type: "resolved" },
-      { source: "Apple", target: "Nokia", type: "resolved" },
-      { source: "Qualcomm", target: "Nokia", type: "resolved" },
-      { source: "Apple", target: "Motorola", type: "suit" },
-      { source: "Microsoft", target: "Motorola", type: "suit" },
-      { source: "Motorola", target: "Microsoft", type: "suit" },
-      { source: "Huawei", target: "ZTE", type: "suit" },
-      { source: "Ericsson", target: "ZTE", type: "suit" },
-      { source: "Kodak", target: "Samsung", type: "resolved" },
-      { source: "Apple", target: "Samsung", type: "suit" },
-      { source: "Kodak", target: "RIM", type: "suit" },
-      { source: "Nokia", target: "Qualcomm", type: "suit" }
+      // { source: "/(HOME)", target: '/taskid', type: 'licensing'},
+      // { source: "/(HOME)", target: '/tasks', type: 'licensing' },
+      // { source: "/(HOME)", target: '/updateTasks', type: 'licensing'},
+      // { source: "/(HOME)", target: '/alltasks', type: 'licensing' },
+      // { source: "/(HOME)", target: '/storiesId', type: 'licensing' },
+      // { source: "/(HOME)", target: '/stories', type: 'licensing' },
+      // { source: "/(HOME)", target: '/updateStories', type: 'licensing' },
+      // { source: "/(HOME)", target: '/allStories', type: 'licensing' },
+      // { source: "/(HOME)", target: '/boardsId', type: 'licensing' },
+      // { source: "/(HOME)", target: '/boards', type: 'licensing' },
+      // { source: "/(HOME)", target: '/sendInvite', type: 'licensing' },
+      // { source: "/(HOME)", target: '/acceptInvite', type: 'licensing' },
+      // { source: "/(HOME)", target: '/rejectInvite', type: 'licensing' },
+      // { source: "/(HOME)", target: '/getInvites', type: 'licensing' },
+
+
+      { source: "/taskid", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing"},
+      { source: "query", target: "expressInit", type: "licensing"},
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing'},
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing'},
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing'},
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing'},
+      {source: 'urlencodedParser', target: 'cookieParser', type: 'licensing'},
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing'},
+
+      { source: "/tasks", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/updateTasks", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/allTasks", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/storiesId", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/stories", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/updateStories", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/allStories", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/boardsId", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/boards", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/sendInvite", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/acceptInvite", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/rejectInvite", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
+      { source: "/getInvites", target: "middleware", type: "licensing" },
+      { source: "middleware", target: "query", type: "licensing" },
+      { source: "query", target: "expressInit", type: "licensing" },
+      { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
+      { source: "profileMiddleware", target: 'corsMiddleware', type: 'licensing' },
+      { source: "corsMiddleware", target: 'jsonParser', type: 'licensing' },
+      { source: 'jsonParser', target: 'urlencodedParser', type: 'licensing' },
+      { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
+      { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
+
     ];
 
     const nodes = {};
@@ -72,17 +201,19 @@ export default class RouteMap extends Component {
 
     // Per-type markers, as they don't inherit styles.
     svg.append("defs").selectAll("marker")
-      .data(["suit", "licensing", "resolved"])
+      .data(["suit", "licensing", "licensing"])
       .enter().append("marker")
       .attr("id", function (d) { return d; })
       .attr("viewBox", "0 -5 10 10")
-      .attr("refX", 15)
+      .attr("refX", 25)
       .attr("refY", -1.5)
       .attr("markerWidth", 6)
       .attr("markerHeight", 6)
       .attr("orient", "auto")
       .append("path")
       .attr("d", "M0,-5L10,0L0,5");
+
+
 
     const path = svg.append("g").selectAll("path")
       .data(force.links())
@@ -93,14 +224,15 @@ export default class RouteMap extends Component {
     const circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
       .enter().append("circle")
-      .attr("r", 6)
+      .attr("r", 10)
+      .on('mouseover', this.props.onHover)
       .call(force.drag);
 
     const text = svg.append("g").selectAll("text")
       .data(force.nodes())
       .enter().append("text")
       .attr("x", 8)
-      .attr("y", ".31em")
+      .attr("y", ".8em")
       .text(function (d) { return d.name; });
 
     // Use elliptical arc path segments to doubly-encode directionality.
@@ -113,7 +245,7 @@ export default class RouteMap extends Component {
     function linkArc(d) {
       const dx = d.target.x - d.source.x,
         dy = d.target.y - d.source.y,
-        dr = Math.sqrt(dx * dx + dy * dy);
+        dr = Math.sqrt(dx*1.5 * dx + dy * dy*1.5);
       return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
     }
 

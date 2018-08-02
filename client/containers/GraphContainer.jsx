@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PerformanceGraph from '../components/PerformanceGraph';
-import RouteMap from '../components/Test'
+import RouteMap from '../components/RouteMap'
 
 
 class GraphContainer extends Component {
@@ -16,7 +16,8 @@ class GraphContainer extends Component {
   }
 
   onHover(d) {
-    this.setState({ hover: d.id })
+    this.setState({ hover: d })
+    console.log(d)
   }
 
   onBrush(d) {
@@ -39,7 +40,7 @@ class GraphContainer extends Component {
           <h1> Routes & Middleware Map</h1>
         </div>
         <div className="routemap">
-          <RouteMap/>
+          <RouteMap onHover={this.onHover}/>
         </div>
       </div>;
   }
