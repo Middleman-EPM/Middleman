@@ -33,7 +33,7 @@ export default class RouteMap extends Component {
       // { source: "/(HOME)", target: '/getInvites', type: 'licensing' },
 
 
-      { source: "/taskid", target: "middleware", type: "licensing" },
+      { source: "/taskid", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing"},
       { source: "query", target: "expressInit", type: "licensing"},
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing'},
@@ -43,7 +43,7 @@ export default class RouteMap extends Component {
       {source: 'urlencodedParser', target: 'cookieParser', type: 'licensing'},
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing'},
 
-      { source: "/tasks", target: "middleware", type: "licensing" },
+      { source: "/tasks", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -53,7 +53,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/updateTasks", target: "middleware", type: "licensing" },
+      { source: "/updateTasks", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -63,7 +63,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/allTasks", target: "middleware", type: "licensing" },
+      { source: "/allTasks", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -73,7 +73,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/storiesId", target: "middleware", type: "licensing" },
+      { source: "/storiesId", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -83,7 +83,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/stories", target: "middleware", type: "licensing" },
+      { source: "/stories", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -93,7 +93,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/updateStories", target: "middleware", type: "licensing" },
+      { source: "/updateStories", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -103,7 +103,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/allStories", target: "middleware", type: "licensing" },
+      { source: "/allStories", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -113,7 +113,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/boardsId", target: "middleware", type: "licensing" },
+      { source: "/boardsId", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -123,7 +123,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/boards", target: "middleware", type: "licensing" },
+      { source: "/boards", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -133,7 +133,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/sendInvite", target: "middleware", type: "licensing" },
+      { source: "/sendInvite", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -143,7 +143,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/acceptInvite", target: "middleware", type: "licensing" },
+      { source: "/acceptInvite", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -153,7 +153,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/rejectInvite", target: "middleware", type: "licensing" },
+      { source: "/rejectInvite", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -163,7 +163,7 @@ export default class RouteMap extends Component {
       { source: 'urlencodedParser', target: 'cookieParser', type: 'licensing' },
       { source: 'cookieParser', target: 'serveStatic', type: 'licensing' },
 
-      { source: "/getInvites", target: "middleware", type: "licensing" },
+      { source: "/getInvites", target: "middleware", type: "resolved" },
       { source: "middleware", target: "query", type: "licensing" },
       { source: "query", target: "expressInit", type: "licensing" },
       { source: "expressInit", target: 'profileMiddleware', type: 'licensing' },
@@ -190,10 +190,14 @@ export default class RouteMap extends Component {
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(60)
+      .linkDistance(50)
       .charge(-300)
+      .friction(.75)
+      .gravity(.1)
       .on("tick", tick)
+
       .start();
+
 
     const svg = d3.select("#svgTest")
       .attr("width", width)
@@ -201,7 +205,7 @@ export default class RouteMap extends Component {
 
     // Per-type markers, as they don't inherit styles.
     svg.append("defs").selectAll("marker")
-      .data(["suit", "licensing", "licensing"])
+      .data(["resolved", "licensing", "licensing"])
       .enter().append("marker")
       .attr("id", function (d) { return d; })
       .attr("viewBox", "0 -5 10 10")
@@ -224,7 +228,7 @@ export default class RouteMap extends Component {
     const circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
       .enter().append("circle")
-      .attr("r", 10)
+      .attr("r", 8)
       .on('mouseover', this.props.onHover)
       .call(force.drag);
 
@@ -245,7 +249,7 @@ export default class RouteMap extends Component {
     function linkArc(d) {
       const dx = d.target.x - d.source.x,
         dy = d.target.y - d.source.y,
-        dr = Math.sqrt(dx*1.5 * dx + dy * dy*1.5);
+        dr = Math.sqrt(dx * dx + dy * dy);
       return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
     }
 
