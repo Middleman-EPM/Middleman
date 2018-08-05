@@ -12,5 +12,8 @@
   "plugins": [
     "react-hot-loader/babel",
     "transform-es2015-modules-commonjs"
+  ],
+  "ignore" : [
+    "./client/d3/d3.js"
   ]
 }
