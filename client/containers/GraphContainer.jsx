@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PerformanceGraph from '../components/PerformanceGraph';
 import RouteMap from '../components/RouteMap'
 
 
@@ -32,10 +31,6 @@ class GraphContainer extends Component {
 
   render() {
     return <div className="graphcontainer">
-        <div id="testing"></div>
-        <div className="performance">
-          <PerformanceGraph />
-        </div>
         <div>
           <h1> Routes & Middleware Map</h1>
         </div>

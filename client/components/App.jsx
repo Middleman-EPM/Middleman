@@ -1,11 +1,11 @@
 import React from 'react';
 import GraphContainer from '../containers/GraphContainer';
 
-export const App = () => (
+const App = () => (
   <div id="main">
     <div className="title">
       <h1>
-        Welcome to MiddleMan!
+        MiddleMan
       </h1>
       <div className="graph-container">
         <GraphContainer />
