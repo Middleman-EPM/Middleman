@@ -14,6 +14,7 @@ export default class RouteMap extends Component {
   // }
 
   makeForceChart() {
+    console.log(d3)
     const links = [
       { source: "/(HOME)", target: "/taskid", type: "licensing" },
       { source: "/(HOME)", target: "/tasks", type: "licensing" },
