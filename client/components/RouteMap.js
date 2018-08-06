@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import * as d3 from '../d3/d3';
+import React, { Component } from "react";
+import * as d3 from "../d3/d3";
 
 export default class RouteMap extends Component {
   constructor(props) {
@@ -416,14 +416,22 @@ export default class RouteMap extends Component {
       <div
         className="Test"
         style={{
-         // boxShadow: "0px 1px 5px 1px",
-         // borderStyle: "groove",
+          // boxShadow: "0px 1px 5px 1px",
+          // borderStyle: "groove",
           height: "60%",
           width: "40%",
           position: "relative"
         }}
       >
-        <svg id="svgTest" style={{border: "2px solid #333"}}> </svg>
+        <svg
+          id="svgTest"
+          style={{
+            border: "2px solid #333",
+            borderRadius: ".2em"
+          }}
+        >
+          {" "}
+        </svg>
       </div>
     );
   }
