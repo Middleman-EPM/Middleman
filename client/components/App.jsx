@@ -4,9 +4,9 @@ import GraphContainer from '../containers/GraphContainer';
 const App = () => (
   <div id="main">
     <div className="title">
-      <h1>
+      <h2>
         MiddleMan
-      </h1>
+      </h2>
       <div className="graph-container">
         <GraphContainer />
       </div>

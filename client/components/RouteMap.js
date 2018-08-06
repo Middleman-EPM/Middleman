@@ -416,13 +416,14 @@ export default class RouteMap extends Component {
       <div
         className="Test"
         style={{
-          boxShadow: "0px 1px 5px 1px",
+         // boxShadow: "0px 1px 5px 1px",
+         // borderStyle: "groove",
           height: "60%",
-          width: "60%",
+          width: "40%",
           position: "relative"
         }}
       >
-        <svg id="svgTest"> </svg>
+        <svg id="svgTest" style={{border: "2px solid #333"}}> </svg>
       </div>
     );
   }

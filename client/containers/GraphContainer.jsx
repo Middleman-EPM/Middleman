@@ -39,7 +39,7 @@ class GraphContainer extends Component {
     return (
       <div className="graphcontainer">
         <div>
-          <h1>Routes & Middleware Map</h1>
+          <h2 style={{fontWeight: '300'}}>Routes & Middleware Map</h2>
         </div>
         <div className="routemap">
           <RouteMap onHover={this.onHover} />
