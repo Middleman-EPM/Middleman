@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RouteMap from '../components/RouteMap';
+import DashBoard from '../containers/DashBoard';
 
 class GraphContainer extends Component {
   constructor(props) {
@@ -38,11 +39,14 @@ class GraphContainer extends Component {
   render() {
     return (
       <div className="graphcontainer">
+      <div>
+        <DashBoard onHover={this.onHover}/>
+      </div>
         <div>
           <h2 style={{fontWeight: '300'}}>Routes & Middleware Map</h2>
         </div>
         <div className="routemap">
-          <RouteMap onHover={this.onHover} />
+          {/* {<RouteMap onHover={this.onHover} />} */}
         </div>
       </div>
     );
