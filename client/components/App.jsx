@@ -1,23 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GraphContainer from '../containers/GraphContainer';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
-    return (
-      <div id="main">
-        <div className="title">
-          <h1>Welcome to Middleman!</h1>
-          <div className="graph-container">
-            <GraphContainer/>
-          </div>
-        </div>
+const App = () => (
+  <div id="main">
+    <div className="title">
+      <h2>
+        MiddleMan
+      </h2>
+      <div className="graph-container">
+        <GraphContainer />
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
 
 export default App;
