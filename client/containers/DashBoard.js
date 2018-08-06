@@ -8,10 +8,10 @@ export default class DashBoard extends Component {
     super(props);
     this.state = { selected: null };
   }
-  
+
   onClick = (d) => {
-    console.log(this.state.selected)
     this.setState({ selected: d });
+    console.log(this.state.selected)
   }
 
   makeDashBoard() {
@@ -337,7 +337,7 @@ export default class DashBoard extends Component {
           return yScale(d.measure) + 14;
         })
         .attr("class", "yAxis");
-      /* moved to CSS			   
+      /* moved to CSS
 .attr("font-family", "sans-serif")
 .attr("font-size", "11px")
 .attr("fill", "white")
@@ -735,7 +735,7 @@ export default class DashBoard extends Component {
     return (
       <div className="dashSVG">
         <h1>Performance Dashboard</h1>
-        <BarChart onClick={this.onClick} />
+        {/* <BarChart onClick={this.onClick} /> */}
         <PieChart onClick={this.onClick} />
       </div>
     );
