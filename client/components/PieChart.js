@@ -52,15 +52,15 @@ export default class PieChart extends Component {
   }
 
 componentDidMount(){
-  this.makePieChart();
   this.makeBarChart();
+  this.makePieChart();
   // console.log(this.props)
 }
   dsBarChartBasics= ()=> {
   var margin = { top: 30, right: 5, bottom: 20, left: 50 },
     width = 500 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom,
-    colorBar = d3.scale.category20(),
+    colorBar = this.state.color,
     barPadding = 1;
 
   return {
@@ -150,7 +150,7 @@ componentDidMount(){
     var margin = basics.margin,
       width = basics.width,
       height = basics.height,
-      colorBar = basics.colorBar,
+      colorBar = this.state.color,
       barPadding = basics.barPadding;
 
     var xScale = d3.scale
@@ -398,7 +398,7 @@ componentDidMount(){
         // for animation
         innerRadiusFinal = outerRadius * 0.5,
         innerRadiusFinal3 = outerRadius * 0.45,
-        color = d3.scale.category20(); //builtin range of colors
+        color = this.state.color; //builtin range of colors
        // var d3_category20 = [ "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d3", "#7f7f7f", "#c7c7c7", "#bcbd32", "#dbdb8d", "#17becf", "#9edae5" ];
       var vis = d3
         .select("#pieChart")
