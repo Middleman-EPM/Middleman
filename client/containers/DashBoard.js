@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as d3 from "../d3/d3-v2";
+import * as d3 from "../d3/d3";
 import PieChart from "../components/PieChart";
 import BarChart from '../components/BarChart';
 
@@ -10,9 +10,10 @@ export default class DashBoard extends Component {
   }
 
   onClick = (d) => {
-    this.setState({ selected: d });
+    this.setState({ selected: d.data.category , color: color(i)});
     console.log(this.state.selected)
   }
+
 
   makeDashBoard() {
     var formatAsPercentage = d3.format("%"),
