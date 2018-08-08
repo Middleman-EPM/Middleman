@@ -15,7 +15,7 @@ export default class PieChart extends Component {
   makePieChart = () => {
     const { onClick, getColor, data, formatAsPercentage, angle } = this.props
 
-    var width = 400,
+    const width = 400,
       height = 400,
       outerRadius = Math.min(width, height) / 2,
       innerRadius = outerRadius * 0.999,
@@ -24,7 +24,7 @@ export default class PieChart extends Component {
       innerRadiusFinal3 = outerRadius * 0.45;
  //builtin range of colors
     // var d3_category20 = [ "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d3", "#7f7f7f", "#c7c7c7", "#bcbd32", "#dbdb8d", "#17becf", "#9edae5" ];
-    var vis = d3
+    const vis = d3
       .select("#pieChart")
       .data([data]) //associate our data with the document
       .attr("width", width) //set the width and height of our visualization (these will be attributes of the <svg> tag
@@ -35,26 +35,26 @@ export default class PieChart extends Component {
         "translate(" + outerRadius + "," + outerRadius + ")"
       ); //move the center of the pie chart from 0, 0 to radius, radius
 
-    var arc = d3.svg
+    const arc = d3.svg
       .arc() //this will create <path> elements for us using arc data
       .outerRadius(outerRadius)
       .innerRadius(innerRadius);
 
     // for animation
-    var arcFinal = d3.svg
+    const arcFinal = d3.svg
       .arc()
       .innerRadius(innerRadiusFinal)
       .outerRadius(outerRadius);
-    var arcFinal3 = d3.svg
+    const arcFinal3 = d3.svg
       .arc()
       .innerRadius(innerRadiusFinal3)
       .outerRadius(outerRadius);
 
-    var pie = d3.layout
+    const pie = d3.layout
       .pie() //this will create arc data for us given a list of values
       .value(d => d.measure); //we must tell it out to access the value of each element in our data array
 
-    var arcs = vis
+    const arcs = vis
       .selectAll("g.slice") //this selects all <g> elements with class slice (there aren't any yet)
       .data(pie) //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
       .enter() //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
@@ -101,7 +101,7 @@ export default class PieChart extends Component {
       .attr("class", "title");
   }
   dsBarChartBasics = () => {
-    var margin = { top: 30, right: 5, bottom: 20, left: 50 },
+    const margin = { top: 30, right: 5, bottom: 20, left: 50 },
       width = 500 - margin.left - margin.right,
       height = 250 - margin.top - margin.bottom,
       barPadding = 1;
@@ -115,26 +115,26 @@ export default class PieChart extends Component {
   updateBarChart = (group, colorChosen) => {
     const {barChartData, formatAsInteger} = this.props;
 
-    var basics = this.dsBarChartBasics();
+    const basics = this.dsBarChartBasics();
 
-    var margin = basics.margin,
+    const margin = basics.margin,
       width = basics.width,
       height = basics.height,
       barPadding = basics.barPadding;
 
-    var xScale = d3.scale
+    const xScale = d3.scale
       .linear()
       .domain([0, barChartData.length])
       .range([0, width]);
 
-    var yScale = d3.scale
+    const yScale = d3.scale
       .linear()
       .domain([0, d3.max(barChartData, d => d.measure)])
       .range([height, 0]);
 
-    var svg = d3.select("#barChart svg");
+    const svg = d3.select("#barChart svg");
 
-    var plot = d3.select("#barChartPlot").datum(barChartData);
+    const plot = d3.select("#barChartPlot").datum(barChartData);
 
     /* Note that here we only have to select the elements - no more appending! */
     plot

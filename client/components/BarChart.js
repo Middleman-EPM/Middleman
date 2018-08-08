@@ -4,12 +4,12 @@ import * as d3 from '../d3/d3';
 export default class BarChart extends Component {
   componentDidMount() {
     setTimeout(this.makeBarChart, 10)
-
+    console.log('from fdgdfgdfgdgfgfdg gggggg')
   }
 
 
   dsBarChartBasics = () => {
-    var margin = { top: 30, right: 5, bottom: 20, left: 50 },
+    const margin = { top: 30, right: 5, bottom: 20, left: 50 },
       width = 500 - margin.left - margin.right,
       height = 250 - margin.top - margin.bottom,
       barPadding = 1;
@@ -23,16 +23,15 @@ export default class BarChart extends Component {
 
   makeBarChart = () => {
     const {data, color, formatAsInteger} = this.props;
-    console.log(data)
 
-    var basics = this.dsBarChartBasics();
+    const basics = this.dsBarChartBasics();
 
-    var margin = basics.margin,
+    const margin = basics.margin,
       width = basics.width,
       height = basics.height,
       barPadding = basics.barPadding;
 
-    var xScale = d3.scale
+    const xScale = d3.scale
       .linear()
       .domain([0, data.length])
       .range([0, width]);
@@ -40,7 +39,7 @@ export default class BarChart extends Component {
     // Create linear y scale
     // Purpose: No matter what the data is, the bar should fit into the svg area; bars should not
     // get higher than the svg height. Hence incoming data needs to be scaled to fit into the svg area.
-    var yScale = d3.scale
+    const yScale = d3.scale
       .linear()
       // use the max funtion to derive end point of the domain (max value of the dataset)
       // do not use the min value of the dataset as min of the domain as otherwise you will not see the first bar
@@ -52,13 +51,13 @@ export default class BarChart extends Component {
 
     //Create SVG element
 
-    var svg = d3
+    const svg = d3
       .select("#barChart")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .attr("id", "barChartPlot");
 
-    var plot = svg
+    const plot = svg
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -95,7 +94,7 @@ export default class BarChart extends Component {
 
     // Add x labels to chart
 
-    var xLabels = svg
+    const xLabels = svg
       .append("g")
       .attr(
         "transform",

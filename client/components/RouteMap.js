@@ -14,7 +14,6 @@ export default class RouteMap extends Component {
   // }
 
   makeForceChart() {
-    console.log(d3)
     const links = [
       { source: "/(HOME)", target: "/taskid", type: "licensing" },
       { source: "/(HOME)", target: "/tasks", type: "licensing" },
@@ -299,7 +298,7 @@ export default class RouteMap extends Component {
     const nodes = {};
 
     // Compute the distinct nodes from the links.
-    links.forEach(function(link) {
+    links.forEach((link) => {
       link.source =
         nodes[link.source] || (nodes[link.source] = { name: link.source });
       link.target =
@@ -334,9 +333,7 @@ export default class RouteMap extends Component {
       .data(["resolved", "licensing", "licensing"])
       .enter()
       .append("marker")
-      .attr("id", function(d) {
-        return d;
-      })
+      .attr("id", d => d)
       .attr("viewBox", "0 -5 10 10")
       .attr("refX", 25)
       .attr("refY", -1.5)
@@ -352,12 +349,8 @@ export default class RouteMap extends Component {
       .data(force.links())
       .enter()
       .append("path")
-      .attr("class", function(d) {
-        return "link " + d.type;
-      })
-      .attr("marker-end", function(d) {
-        return "url(#" + d.type + ")";
-      });
+      .attr('class', d => "link " + d.type)
+      .attr('marker-end', d => "url(#" + d.type + ")");
 
     const circle = svg
       .append("g")
@@ -377,18 +370,16 @@ export default class RouteMap extends Component {
       .append("text")
       .attr("x", 8)
       .attr("y", ".8em")
-      .text(function(d) {
-        return d.name;
-      });
+      .text(d => d.name);
 
     // Use elliptical arc path segments to doubly-encode directionality.
-    function tick() {
+    tick = () => {
       path.attr("d", linkArc);
       circle.attr("transform", transform);
       text.attr("transform", transform);
     }
 
-    function linkArc(d) {
+    linkArc = (d) => {
       const dx = d.target.x - d.source.x,
         dy = d.target.y - d.source.y,
         dr = Math.sqrt(dx * dx + dy * dy);
@@ -408,9 +399,7 @@ export default class RouteMap extends Component {
       );
     }
 
-    function transform(d) {
-      return "translate(" + d.x + "," + d.y + ")";
-    }
+  transform = (d) => ("translate(" + d.x + "," + d.y + ")")
   }
   render() {
     return (
@@ -431,7 +420,6 @@ export default class RouteMap extends Component {
             borderRadius: ".2em"
           }}
         >
-          {" "}
         </svg>
       </div>
     );
