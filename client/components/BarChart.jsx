@@ -4,7 +4,6 @@ import * as d3 from '../d3/d3';
 export default class BarChart extends Component {
   componentDidMount() {
     setTimeout(this.makeBarChart, 10)
-    console.log('from fdgdfgdfgdgfgfdg gggggg')
   }
 
 
@@ -21,9 +20,7 @@ export default class BarChart extends Component {
     };
   }
 
-  makeBarChart = () => {
-    const {data, color, formatAsInteger} = this.props;
-
+  makeBarChart = ({data, color, formatAsInteger} = this.props) => {
     const basics = this.dsBarChartBasics();
 
     const margin = basics.margin,
@@ -52,86 +49,86 @@ export default class BarChart extends Component {
     //Create SVG element
 
     const svg = d3
-      .select("#barChart")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .attr("id", "barChartPlot");
+      .select('#barChart')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .attr('id', 'barChartPlot');
 
     const plot = svg
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     plot
-      .selectAll("rect")
+      .selectAll('rect')
       .data(data)
       .enter()
-      .append("rect")
-      .attr("x", (d, i) => xScale(i))
-      .attr("width", width / data.length - barPadding)
-      .attr("y", d => yScale(d.measure))
-      .attr("height", d => height - yScale(d.measure))
-      .attr("fill", data.group==='all' ? 'lightgrey' : color);
+      .append('rect')
+      .attr('x', (d, i) => xScale(i))
+      .attr('width', width / data.length - barPadding)
+      .attr('y', d => yScale(d.measure))
+      .attr('height', d => height - yScale(d.measure))
+      .attr('fill', data.group==='all' ? 'lightgrey' : color);
 
     // Add y labels to plot
 
     plot
-      .selectAll("text")
+      .selectAll('text')
       .data(data)
       .enter()
-      .append("text")
+      .append('text')
       .text(d => formatAsInteger(d3.round(d.measure)))
-      .attr("text-anchor", "middle")
+      .attr('text-anchor', 'middle')
       // Set x position to the left edge of each bar plus half the bar width
-      .attr("x", (d, i) => {
+      .attr('x', (d, i) => {
         return (
           i * (width / data.length) +
           (width / data.length - barPadding) / 2
         );
       })
-      .attr("y", d => yScale(d.measure) + 14)
-      .attr("class", "yAxis");
+      .attr('y', d => yScale(d.measure) + 14)
+      .attr('class', 'yAxis');
 
 
     // Add x labels to chart
 
     const xLabels = svg
-      .append("g")
+      .append('g')
       .attr(
-        "transform",
-        "translate(" + margin.left + "," + (margin.top + height) + ")"
+        'transform',
+        'translate(' + margin.left + ',' + (margin.top + height) + ')'
       );
 
     xLabels
-      .selectAll("text.xAxis")
+      .selectAll('text.xAxis')
       .data(data)
       .enter()
-      .append("text")
+      .append('text')
       .text(d => d.category)
-      .attr("text-anchor", "middle")
+      .attr('text-anchor', 'middle')
       // Set x position to the left edge of each bar plus half the bar width
-      .attr("x", (d, i) => {
+      .attr('x', (d, i) => {
         return (
           i * (width / data.length) +
           (width / data.length - barPadding) / 2
         );
       })
-      .attr("y", 15)
-      .attr("class", "xAxis");
+      .attr('y', 15)
+      .attr('class', 'xAxis');
 
 
     // Title
 
     svg
-      .append("text")
-      .attr("x", (width + margin.left + margin.right) / 2)
-      .attr("y", 15)
-      .attr("class", "title")
-      .attr("text-anchor", "middle")
-      .text("Overall Sales Breakdown 2012");
+      .append('text')
+      .attr('x', (width + margin.left + margin.right) / 2)
+      .attr('y', 15)
+      .attr('class', 'title')
+      .attr('text-anchor', 'middle')
+      .text('Overall Sales Breakdown 2012');
   //}
   }
 
   render() {
-    return <svg id="barChart"></svg>
+    return <svg id='barChart'></svg>
   }
 }
