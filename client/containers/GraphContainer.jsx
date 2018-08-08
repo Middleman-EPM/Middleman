@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PieChart from '../components/PieChart';
-import BarChart from '../components/BarChart';
+import PieChart from '../components/PieChart.jsx';
+import BarChart from '../components/BarChart.jsx';
 import * as d3 from '../d3/d3';
 
 class GraphContainer extends Component {
