@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import RouteMap from '../components/RouteMap';
 import PieChart from '../components/PieChart';
 import BarChart from '../components/BarChart';
-// import DashBoard from '../containers/DashBoard';
+import StoryForceGraph from '../components/StoryForceGraph'
+
 import * as d3 from '../d3/d3';
 
 class GraphContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // hover: 'none',
-      // selected: this.datasetBarChosen('all'),
       selected: null,
       getColor: d3.scale.category20(),
       color: 'lightgrey',
+      selectedGraph: true,
+      graphName: 'Zoom Route',
       pieChartData:
       [
         { category: "Sam", measure: 0.3 },
@@ -332,7 +333,6 @@ class GraphContainer extends Component {
 
   datasetBarChosen = group => {
     var ds = [];
-    var ds = [];
     for (let x in this.state.barChartData) {
       if (this.state.barChartData[x].group == group) {
         ds.push(this.state.barChartData[x]);
@@ -366,7 +366,17 @@ class GraphContainer extends Component {
   //     //.attr("stroke-width", 1.5)
   //     .attr("d", arcFinal);
   // }
+  toggleGraph = () => {
+    this.setState({ selectedGraph: !this.state.selectedGraph, graphName: this.selectedGraph ? 'Zoom Graph' : 'Force Route Graph'})
+    console.log(`selected graph: ${this.state.selectedGraph}`)
+  }
 
+  // returnGraph = () => {
+  //   let a ;
+  //   this.state.selectedGraph ? a =  <RouteMap forceGraphData={this.state.forceGraphData}/> : a= <StoryForceGraph />
+  //   console.log('hello')
+  //   return a
+  // }
   componentDidMount() {
     //axios call to get data from database
     console.log(this.state.barChartData)
@@ -374,19 +384,40 @@ class GraphContainer extends Component {
     // this.setState({ selected: this.datasetBarChosen('all') });
     // console.log(this.state.color);
   }
+    // componentDidUpdate() {
+    //   this.state.selectedGraph ? makeForceGraph() : false
+    // }
 
   render() {
+    console.log(this.state.forceGraphData)
     return (
       <div className="graphcontainer">
         <div>
-          <PieChart onClick={this.onClick} getColor={this.state.getColor} data={this.state.pieChartData} formatAsPercentage={this.state.formatAsPercentage} angle={this.angle} barChartData={this.state.selected} formatAsInteger={this.state.formatAsInteger} color={this.state.color}/>
-          <BarChart data={this.state.selected} color={this.state.color} formatAsInteger={this.state.formatAsInteger}/>
+          <PieChart
+            onClick={this.onClick}
+            getColor={this.state.getColor}
+            data={this.state.pieChartData}
+            formatAsPercentage={this.state.formatAsPercentage}
+            angle={this.angle}
+            barChartData={this.state.selected}
+            formatAsInteger={this.state.formatAsInteger}
+            color={this.state.color}
+            />
+          <BarChart
+          data={this.state.selected}
+          color={this.state.color}
+          formatAsInteger={this.state.formatAsInteger}
+          />
         </div>
         <div>
           <h2 style={{ fontWeight: '300' }}>Routes & Middleware Map</h2>
+          <button onClick={this.toggleGraph}> Change views </button>
         </div>
-        <div className="routemap">
-          {/* <RouteMap onHover={this.onHover} /> */}
+        <div className="routemap" style={{ display: this.state.selectedGraph ? 'flex' : 'none', justifyContent: 'center' }}>
+          <RouteMap forceGraphData={this.state.forceGraphData} />
+        </div>
+        <div className="storyForceGraph" style={{ display: this.state.selectedGraph ? 'none' : 'flex' , justifyContent: 'center'}}>
+          <StoryForceGraph />
         </div>
       </div>
     );

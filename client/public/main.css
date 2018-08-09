@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.routemap {
-  display: flex;
-  justify-content: center;
-}
-
 .title {
   text-align: center;
 }
@@ -26,17 +21,33 @@
 }
 
 .link.resolved {
-  stroke-dasharray: 0, 2 1;
+  stroke-dasharray: 2;
 }
 
-circle {
+/* circle {
   fill: #ccc;
   stroke: #333;
   stroke-width: 1.5px;
-}
+} */
 
 text {
   font: 10px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+.rv-force__interactive .rv-force__node {
+  cursor: pointer;
+}
+
+.rv-force__label {
+  pointer-events: none;
+}
+
+.rv-force__label::selection {
+  background: none;
+}
+
+.rv-force__node, .rv-force__link, .rv-force__label {
+  transition: opacity 250ms, color 250ms;
 }

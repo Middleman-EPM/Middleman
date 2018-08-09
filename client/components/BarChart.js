@@ -3,10 +3,8 @@ import * as d3 from '../d3/d3';
 
 export default class BarChart extends Component {
   componentDidMount() {
-    setTimeout(this.makeBarChart, 10)
-
+    this.makeBarChart();
   }
-
 
   dsBarChartBasics = () => {
     var margin = { top: 30, right: 5, bottom: 20, left: 50 },
@@ -23,7 +21,7 @@ export default class BarChart extends Component {
 
   makeBarChart = () => {
     const {data, color, formatAsInteger} = this.props;
-    console.log(data)
+    // console.log(data)
 
     var basics = this.dsBarChartBasics();
 
