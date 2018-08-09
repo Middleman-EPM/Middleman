@@ -3,30 +3,24 @@ import * as d3 from "../d3/d3";
 
 
 export default class RouteMap extends Component {
-  state = {
-    data: this.props.forceGraphData
-  }
+
   componentDidMount() {
-    // console.log(okjfgt);
-    // const {selected} = this.props;
-    // selected ? this.makeForceChart() : null;
     this.makeForceChart();
   }
 
   makeForceChart = () => {
 
-    const {forceGraphData} = this.props;
-    // console.log(forceGraphData)
+    const { forceGraphData } = this.props;
 
     const nodes = {};
     forceGraphData.forEach(link => {
 
       link.source =
         nodes[link.source] || (nodes[link.source] = { name: link.source });
-        // nodes[link.source]
+
       link.target =
         nodes[link.target] || (nodes[link.target] = { name: link.target });
-        // nodes[link.target]
+
     });
     console.log(nodes)
 
@@ -45,7 +39,7 @@ export default class RouteMap extends Component {
       .charge(-150)
       .friction(0.7)
       .gravity(0.15)
-      .on("tick",tick)
+      .on("tick", tick)
 
       .start();
 
@@ -55,8 +49,8 @@ export default class RouteMap extends Component {
       .attr("height", height);
 
 
-      // Per-type markers, as they don't inherit styles.
-      svg
+    // Per-type markers, as they don't inherit styles.
+    svg
       .append("defs")
       .selectAll("marker")
       .data(["resolved", "licensing", "licensing"])
@@ -72,7 +66,7 @@ export default class RouteMap extends Component {
       .append("path")
       .attr("d", "M0,-5L10,0L0,5");
 
-      const path = svg
+    const path = svg
       .append("g")
       .selectAll("path")
       .data(force.links())
@@ -103,7 +97,7 @@ export default class RouteMap extends Component {
       .text(d => d.name);
 
     // Use elliptical arc path segments to doubly-encode directionality.
-     function tick() {
+    function tick() {
       path.attr("d", linkArc);
       circle.attr("transform", transform);
       text.attr("transform", transform);
@@ -133,9 +127,6 @@ export default class RouteMap extends Component {
     }
   }
   render() {
-    
-
-    // this.makeForceChart();
-    return <svg id="forceGraph" style={{ border: "2px solid #333", borderRadius: ".2em" }}/>
+    return <svg id="forceGraph" style={{ border: "2px solid #333", borderRadius: ".2em" }} />
   }
 }
