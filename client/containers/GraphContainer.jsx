@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import RouteMap from '../components/RouteMap';
-import PieChart from '../components/PieChart';
-import BarChart from '../components/BarChart';
-import StoryForceGraph from '../components/StoryForceGraph'
+import RouteMap from '../components/RouteMap.jsx';
+import PieChart from '../components/PieChart.jsx';
+import BarChart from '../components/BarChart.jsx';
+import StoryForceGraph from '../components/StoryForceGraph.jsx'
+import FileMenu from '../components/Menu.jsx'
 
 import * as d3 from '../d3/d3';
 
@@ -441,6 +442,9 @@ class GraphContainer extends Component {
         </div>
         <div className="storyForceGraph" style={{ display: this.state.selectedGraph ? 'none' : 'flex' , justifyContent: 'center'}}>
           <StoryForceGraph />
+        </div>
+        <div>
+          <FileMenu/>
         </div>
       </div>
     );
