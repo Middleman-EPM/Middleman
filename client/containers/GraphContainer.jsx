@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RouteMap from '../components/RouteMap';
 import PieChart from '../components/PieChart';
 import BarChart from '../components/BarChart';
-import StoryForceGraph from '../components/StoryForceGraph'
+import StoryForceGraph from '../components/StoryForceGraph';
 
 import * as d3 from '../d3/d3';
 
