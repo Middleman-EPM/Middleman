@@ -3,7 +3,7 @@ import RouteMap from '../components/RouteMap';
 import PieChart from '../components/PieChart';
 import BarChart from '../components/BarChart';
 import StoryForceGraph from '../components/StoryForceGraph';
-
+import Collapsible from '../components/Collapsible';
 import * as d3 from '../d3/d3';
 
 class GraphContainer extends Component {
@@ -416,6 +416,9 @@ class GraphContainer extends Component {
     return (
       <div className="graphcontainer">
         <div>
+          <Collapsible/>
+          <div>
+          </div>
           <PieChart
             onClick={this.onClick}
             getColor={this.state.getColor}
