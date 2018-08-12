@@ -445,6 +445,7 @@ class GraphContainer extends Component {
         <div className="storyForceGraph" style={{ display: this.state.selectedGraph ? 'none' : 'flex' , justifyContent: 'center'}}>
           <StoryForceGraph />
         </div>
+
       </div>
     );
   }
