@@ -36,6 +36,7 @@
     "lodash.reduce": "^4.6.0",
     "mongoose": "^5.2.5",
     "morgan": "^1.9.0",
+    "pg": "^7.4.3",
     "prop-types": "^15.6.2",
     "rc-menu": "^7.2.6",
     "react": "^16.4.1",
