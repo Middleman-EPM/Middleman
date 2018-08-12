@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import cors from 'cors';
+import controller from './db/connect'
 // import session from 'express-session';
 // import './db';
 // import router from './routes/index';
@@ -29,5 +30,7 @@ app.use(express.static(DIST_DIR));
 app.get('/', (req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
+
+app.post('/', controller.addHash);
 
 app.listen(PORT, () => `Listening on port ${PORT}`);
