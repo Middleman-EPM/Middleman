@@ -27,6 +27,7 @@
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "css-animation": "^1.4.1",
     "d3-force": "^1.1.0",
     "d3-scale": "^2.1.0",
     "dotenv": "^6.0.0",
@@ -35,7 +36,9 @@
     "lodash.reduce": "^4.6.0",
     "mongoose": "^5.2.5",
     "morgan": "^1.9.0",
+    "pg": "^7.4.3",
     "prop-types": "^15.6.2",
+    "rc-menu": "^7.2.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "styled-components": "^3.3.3"
