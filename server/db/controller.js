@@ -5,17 +5,26 @@ const controller = {
     const query = 'INSERT INTO hash (api_key) VALUES($1) RETURNING *';
     const values = [`${req.body.hash}`]//TBD;
 
-    new Promise((resolve, reject) => {
-      const query1 = db.query(query, values, (err, result) => {
+    // new Promise((resolve, reject) => {
+    //   const query1 = db.query(query, values, (err, result) => {
+    //     if(err) console.log('Error adding api_key to table')
+    //     else {
+    //       res.locals.hash_id = result.rows[0]._id;
+    //       console.log('this is running in addHash ',result.rows[0]._id);
+    //         resolve(query1)
+    //     }
+    //   })
+
+    // }).then(()=> next())
+    db.query(query, values, (err, result) => {
         if(err) console.log('Error adding api_key to table')
         else {
           res.locals.hash_id = result.rows[0]._id;
           console.log('this is running in addHash ',result.rows[0]._id);
-            resolve(query1)
+          next()
         }
       })
 
-    }).then(()=> next())
   },
   addRoute: (req, res, next) => {
     console.log('this is add route',res.locals)
