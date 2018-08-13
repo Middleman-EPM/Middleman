@@ -51,3 +51,23 @@ text {
 .rv-force__node, .rv-force__link, .rv-force__label {
   transition: opacity 250ms, color 250ms;
 }
+
+
+
+/* collapsible css */
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
