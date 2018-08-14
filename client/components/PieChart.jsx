@@ -12,8 +12,8 @@ export default class PieChart extends Component {
   }
   
   makePieChart = ({ onClick, getColor, data, formatAsPercentage, angle } = this.props) => {
-    const width = 400,
-      height = 400,
+    const width = 350,
+      height = 350,
       outerRadius = Math.min(width, height) / 2,
       innerRadius = outerRadius * 0.999,
       // for animation

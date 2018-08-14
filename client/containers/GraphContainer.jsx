@@ -6,6 +6,20 @@ import StoryForceGraph from '../components/StoryForceGraph';
 import Collapsible from '../components/Collapsible';
 import * as d3 from '../d3/d3';
 
+// button config
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
+
 class GraphContainer extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +27,8 @@ class GraphContainer extends Component {
       selected: null,
       getColor: d3.scale.category20(),
       color: 'lightgrey',
-      selectedGraph: true,
-      graphName: 'Zoom Route',
+      selectedGraph: 'None',
+      // graphName: 'Zoom Route',
       pieChartData:
       [
         { category: "Sam", measure: 0.3 },
@@ -401,9 +415,19 @@ class GraphContainer extends Component {
   //     //.attr("stroke-width", 1.5)
   //     .attr("d", arcFinal);
   // }
-  toggleGraph = () => {
-    this.setState({ selectedGraph: !this.state.selectedGraph, graphName: this.selectedGraph ? 'Zoom Graph' : 'Force Route Graph'})
-    console.log(`selected graph: ${this.state.selectedGraph}`)
+  // toggleGraph = () => {
+  //   this.setState({ selectedGraph: !this.state.selectedGraph, graphName: this.selectedGraph ? 'Zoom Graph' : 'Force Route Graph'})
+  //   //console.log(`selected graph: ${this.state.selectedGraph}`)
+
+  // }
+  selectCollapsible = () => {
+    this.setState({ selectedGraph: 'Collapsible'})
+  }
+  selectForce = () => {
+    this.setState({ selectedGraph: 'Force'})
+  }
+  selectZoom= () => {
+    this.setState({ selectedGraph: 'Zoom'})
   }
 
   componentDidMount() {
@@ -412,13 +436,9 @@ class GraphContainer extends Component {
   }
 
   render() {
-    console.log(this.state.forceGraphData)
     return (
       <div className="graphcontainer">
-        <div>
-          <Collapsible/>
-          <div>
-          </div>
+        <div>         
           <PieChart
             onClick={this.onClick}
             getColor={this.state.getColor}
@@ -437,17 +457,21 @@ class GraphContainer extends Component {
         </div>
         <div>
           <h2 style={{ fontWeight: '300' }}>Routes & Middleware Map</h2>
-          <button onClick={this.toggleGraph}> Change views </button>
-        </div>
-        <div className="routemap" style={{ display: this.state.selectedGraph ? 'flex' : 'none', justifyContent: 'center' }}>
-          <RouteMap forceGraphData={this.state.forceGraphData} />
-        </div>
-        <div className="storyForceGraph" style={{ display: this.state.selectedGraph ? 'none' : 'flex' , justifyContent: 'center'}}>
-          <StoryForceGraph />
-        </div>
-
+            <Button variant="outlined" onClick={this.selectCollapsible}>Collapsible Graph</Button>
+            <Button variant="outlined" onClick={this.selectForce}>Force Graph</Button>
+            <Button variant="outlined" onClick={this.selectZoom}>Zoom Graph</Button>
+          <div className="routemap" style={{ display: this.state.selectedGraph==='Force' ? 'flex' : 'none', justifyContent: 'center' }}>
+            <RouteMap forceGraphData={this.state.forceGraphData} />
+          </div>
+          <div className="storyForceGraph" style={{ display: this.state.selectedGraph==='Zoom' ? 'flex' : 'none' , justifyContent: 'center'}}>
+            <StoryForceGraph />
+          </div>
+          <div className="collapsible" style={{ display: this.state.selectedGraph==='Collapsible' ? 'flex' : 'none' , justifyContent: 'center'}}>
+            <Collapsible />
+          </div>
+          </div>
       </div>
     );
   }
 }
-export default GraphContainer;
+export default withStyles(styles)(GraphContainer);
