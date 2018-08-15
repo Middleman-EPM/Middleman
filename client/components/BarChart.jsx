@@ -8,14 +8,14 @@ export default class BarChart extends Component {
 
   dsBarChartBasics = () => {
     const margin = { top: 30, right: 5, bottom: 20, left: 50 },
-      width = 500 - margin.left - margin.right,
+      width = 600 - margin.left - margin.right,
       height = 250 - margin.top - margin.bottom,
-      barPadding = 1;
+      barPadding = 2;
     return {
-      margin: margin,
-      width: width,
-      height: height,
-      barPadding: barPadding
+      margin,
+      width,
+      height,
+      barPadding
     };
   }
 

@@ -7,13 +7,12 @@ import Collapsible from "../components/Collapsible";
 import * as d3 from "../d3/d3";
 
 // button config
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
   },
   input: {
     display: "none"
@@ -26,8 +25,8 @@ class GraphContainer extends Component {
     this.state = {
       selected: null,
       getColor: d3.scale.category20(),
-      color: "lightgrey",
-      selectedGraph: "",
+      color: "darkgray",
+      selectedGraph: "Collapsible",
       pieChartData: [
         { category: "/boardsid_post", measure: "0.03" },
         { category: "/boards_delete", measure: "0.04" },
@@ -296,378 +295,238 @@ class GraphContainer extends Component {
           measure: 2.643071
         }
       ],
-      forceGraphData: [
-        { source: "/", target: "/tasksid", type: "licensing" },
-        { source: "/tasksid", target: "/tasksid_post", type: "resolved" },
-        { source: "/", target: "/tasks", type: "licensing" },
-        { source: "/tasks", target: "/tasks_delete", type: "resolved" },
-        { source: "/", target: "/updatetasks", type: "licensing" },
-        {
-          source: "/updatetasks",
-          target: "/updatetasks_post",
-          type: "resolved"
-        },
-        { source: "/", target: "/alltasks", type: "licensing" },
-        {
-          source: "/alltasks",
-          target: "/alltasks_get",
-          type: "resolved"
-        },
-        { source: "/", target: "/storiesid", type: "licensing" },
-        {
-          source: "/storiesid",
-          target: "/storiesid_post",
-          type: "resolved"
-        },
-        { source: "/", target: "/stories", type: "licensing" },
-        {
-          source: "/stories",
-          target: "/stories_delete",
-          type: "resolved"
-        },
-        { source: "/", target: "/updatestories", type: "licensing" },
-        {
-          source: "/updatestories",
-          target: "/updatestories_post",
-          type: "resolved"
-        },
-        { source: "/", target: "/allstories", type: "licensing" },
-        {
-          source: "/allstories",
-          target: "/allstories_get",
-          type: "resolved"
-        },
-        { source: "/", target: "/boardsid", type: "licensing" },
-        {
-          source: "/boardsid",
-          target: "/boardsid_post",
-          type: "resolved"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_query",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_getBoards",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/boardsid_post",
-          target: "post_urlencodedParser",
-          type: "licensing"
-        },
-        { source: "/", target: "/boards", type: "licensing" },
-        { source: "/boards", target: "/boards_delete", type: "resolved" },
-        {
-          source: "/boards_delete",
-          target: "delete_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_query",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_deleteBoard",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_urlencodedParser",
-          type: "licensing"
-        },
-        { source: "/", target: "/boards", type: "licensing" },
-        { source: "/boards", target: "/boards_post", type: "resolved" },
-        {
-          source: "/boards_delete",
-          target: "delete_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_query",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_addBoard",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/boards_delete",
-          target: "delete_urlencodedParser",
-          type: "licensing"
-        },
-        { source: "/", target: "/sendInvite", type: "licensing" },
-        {
-          source: "/sendInvite",
-          target: "/sendInvite_post",
-          type: "resolved"
-        },
-        { source: "/", target: "/acceptInvite", type: "licensing" },
-        {
-          source: "/acceptInvite",
-          target: "/acceptInvite_post",
-          type: "resolved"
-        },
-        { source: "/", target: "/rejectInvite", type: "licensing" },
-        {
-          source: "/rejectInvite",
-          target: "/rejectInvite_delete",
-          type: "resolved"
-        },
-        { source: "/", target: "/getinvites", type: "licensing" },
-        {
-          source: "/getinvites",
-          target: "/getinvites_post",
-          type: "resolved"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_query",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_getInvites",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/getinvites_post",
-          target: "post_urlencodedParser",
-          type: "licensing"
-        },
-        { source: "/", target: "/authuser", type: "licensing" },
-        {
-          source: "/authuser",
-          target: "/authuser_post",
-          type: "resolved"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_query",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_authenticateUser",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_app.post",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/authuser_post",
-          target: "post_urlencodedParser",
-          type: "licensing"
-        },
-        { source: "/", target: "/getusers", type: "licensing" },
-        {
-          source: "/getusers",
-          target: "/getusers_get",
-          type: "resolved"
-        },
-        { source: "/", target: "*", type: "licensing" },
-        { source: "*", target: "*_get", type: "resolved" },
-        { source: "/", target: "/bundle.js", type: "licensing" },
-        {
-          source: "/bundle.js",
-          target: "/bundle.js_get",
-          type: "resolved"
-        },
-        { source: "/", target: "/favicon.ico", type: "licensing" },
-        {
-          source: "/favicon.ico",
-          target: "/favicon.ico_get",
-          type: "resolved"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_serveStatic",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_cookieParser",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_urlencodedParser",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_jsonParser",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_corsMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_profilerMiddleware",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_expressInit",
-          type: "licensing"
-        },
-        {
-          source: "/favicon.ico_get",
-          target: "get_query",
-          type: "licensing"
-        }
-      ],
+      forceGraphData: [ { source: '/', target: '/tasksid', type: 'licensing' },
+      { source: '/tasksid', target: '/tasksid_post', type: 'resolved' },
+      { source: '/', target: '/tasks', type: 'licensing' },
+      { source: '/tasks', target: '/tasks_delete', type: 'resolved' },
+      { source: '/', target: '/updatetasks', type: 'licensing' },
+      { source: '/updatetasks',
+        target: '/updatetasks_post',
+        type: 'resolved' },
+      { source: '/', target: '/alltasks', type: 'licensing' },
+      { source: '/alltasks',
+        target: '/alltasks_get',
+        type: 'resolved' },
+      { source: '/', target: '/storiesid', type: 'licensing' },
+      { source: '/storiesid',
+        target: '/storiesid_post',
+        type: 'resolved' },
+      { source: '/', target: '/stories', type: 'licensing' },
+      { source: '/stories',
+        target: '/stories_delete',
+        type: 'resolved' },
+      { source: '/', target: '/updatestories', type: 'licensing' },
+      { source: '/updatestories',
+        target: '/updatestories_post',
+        type: 'resolved' },
+      { source: '/', target: '/allstories', type: 'licensing' },
+      { source: '/allstories',
+        target: '/allstories_get',
+        type: 'resolved' },
+      { source: '/', target: '/boardsid', type: 'licensing' },
+      { source: '/boardsid',
+        target: '/boardsid_post',
+        type: 'resolved' },
+      { source: '/boardsid_post',
+        target: 'jsonParser_/boardsid',
+        type: 'licensing' },
+      { source: 'jsonParser_/boardsid',
+        target: 'corsMiddleware_/boardsid',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/boardsid',
+        target: 'profilerMiddleware_/boardsid',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/boardsid',
+        target: 'expressInit_/boardsid',
+        type: 'licensing' },
+      { source: 'expressInit_/boardsid',
+        target: 'query_/boardsid',
+        type: 'licensing' },
+      { source: 'query_/boardsid',
+        target: 'getBoards_/boardsid',
+        type: 'licensing' },
+      { source: 'getBoards_/boardsid',
+        target: 'serveStatic_/boardsid',
+        type: 'licensing' },
+      { source: 'serveStatic_/boardsid',
+        target: 'cookieParser_/boardsid',
+        type: 'licensing' },
+      { source: 'cookieParser_/boardsid',
+        target: 'urlencodedParser_/boardsid',
+        type: 'licensing' },
+      { source: '/', target: '/boards', type: 'licensing' },
+      { source: '/boards', target: '/boards_delete', type: 'resolved' },
+      { source: '/boards_delete',
+        target: 'jsonParser_/boards',
+        type: 'licensing' },
+      { source: 'jsonParser_/boards',
+        target: 'corsMiddleware_/boards',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/boards',
+        target: 'profilerMiddleware_/boards',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/boards',
+        target: 'expressInit_/boards',
+        type: 'licensing' },
+      { source: 'expressInit_/boards',
+        target: 'query_/boards',
+        type: 'licensing' },
+      { source: 'query_/boards',
+        target: 'deleteBoard_/boards',
+        type: 'licensing' },
+      { source: 'deleteBoard_/boards',
+        target: 'serveStatic_/boards',
+        type: 'licensing' },
+      { source: 'serveStatic_/boards',
+        target: 'cookieParser_/boards',
+        type: 'licensing' },
+      { source: 'cookieParser_/boards',
+        target: 'urlencodedParser_/boards',
+        type: 'licensing' },
+      { source: '/', target: '/boards', type: 'licensing' },
+      { source: '/boards', target: '/boards_post', type: 'resolved' },
+      { source: '/boards_delete',
+        target: 'jsonParser_/boards',
+        type: 'licensing' },
+      { source: 'jsonParser_/boards',
+        target: 'corsMiddleware_/boards',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/boards',
+        target: 'profilerMiddleware_/boards',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/boards',
+        target: 'expressInit_/boards',
+        type: 'licensing' },
+      { source: 'expressInit_/boards',
+        target: 'query_/boards',
+        type: 'licensing' },
+      { source: 'query_/boards',
+        target: 'addBoard_/boards',
+        type: 'licensing' },
+      { source: 'addBoard_/boards',
+        target: 'serveStatic_/boards',
+        type: 'licensing' },
+      { source: 'serveStatic_/boards',
+        target: 'cookieParser_/boards',
+        type: 'licensing' },
+      { source: 'cookieParser_/boards',
+        target: 'urlencodedParser_/boards',
+        type: 'licensing' },
+      { source: '/', target: '/sendInvite', type: 'licensing' },
+      { source: '/sendInvite',
+        target: '/sendInvite_post',
+        type: 'resolved' },
+      { source: '/', target: '/acceptInvite', type: 'licensing' },
+      { source: '/acceptInvite',
+        target: '/acceptInvite_post',
+        type: 'resolved' },
+      { source: '/', target: '/rejectInvite', type: 'licensing' },
+      { source: '/rejectInvite',
+        target: '/rejectInvite_delete',
+        type: 'resolved' },
+      { source: '/', target: '/getinvites', type: 'licensing' },
+      { source: '/getinvites',
+        target: '/getinvites_post',
+        type: 'resolved' },
+      { source: '/getinvites_post',
+        target: 'jsonParser_/getinvites',
+        type: 'licensing' },
+      { source: 'jsonParser_/getinvites',
+        target: 'corsMiddleware_/getinvites',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/getinvites',
+        target: 'profilerMiddleware_/getinvites',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/getinvites',
+        target: 'expressInit_/getinvites',
+        type: 'licensing' },
+      { source: 'expressInit_/getinvites',
+        target: 'query_/getinvites',
+        type: 'licensing' },
+      { source: 'query_/getinvites',
+        target: 'getInvites_/getinvites',
+        type: 'licensing' },
+      { source: 'getInvites_/getinvites',
+        target: 'serveStatic_/getinvites',
+        type: 'licensing' },
+      { source: 'serveStatic_/getinvites',
+        target: 'cookieParser_/getinvites',
+        type: 'licensing' },
+      { source: 'cookieParser_/getinvites',
+        target: 'urlencodedParser_/getinvites',
+        type: 'licensing' },
+      { source: '/', target: '/authuser', type: 'licensing' },
+      { source: '/authuser',
+        target: '/authuser_post',
+        type: 'resolved' },
+      { source: '/authuser_post',
+        target: 'jsonParser_/authuser',
+        type: 'licensing' },
+      { source: 'jsonParser_/authuser',
+        target: 'corsMiddleware_/authuser',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/authuser',
+        target: 'profilerMiddleware_/authuser',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/authuser',
+        target: 'expressInit_/authuser',
+        type: 'licensing' },
+      { source: 'expressInit_/authuser',
+        target: 'query_/authuser',
+        type: 'licensing' },
+      { source: 'query_/authuser',
+        target: 'authenticateUser_/authuser',
+        type: 'licensing' },
+      { source: 'authenticateUser_/authuser',
+        target: 'app.post_/authuser',
+        type: 'licensing' },
+      { source: 'app.post_/authuser',
+        target: 'serveStatic_/authuser',
+        type: 'licensing' },
+      { source: 'serveStatic_/authuser',
+        target: 'cookieParser_/authuser',
+        type: 'licensing' },
+      { source: 'cookieParser_/authuser',
+        target: 'urlencodedParser_/authuser',
+        type: 'licensing' },
+      { source: '/', target: '/getusers', type: 'licensing' },
+      { source: '/getusers',
+        target: '/getusers_get',
+        type: 'resolved' },
+      { source: '/', target: '*', type: 'licensing' },
+      { source: '*', target: '*_get', type: 'resolved' },
+      { source: '/', target: '/bundle.js', type: 'licensing' },
+      { source: '/bundle.js',
+        target: '/bundle.js_get',
+        type: 'resolved' },
+      { source: '/', target: '/favicon.ico', type: 'licensing' },
+      { source: '/favicon.ico',
+        target: '/favicon.ico_get',
+        type: 'resolved' },
+      { source: '/favicon.ico_get',
+        target: 'serveStatic_/favicon.ico',
+        type: 'licensing' },
+      { source: 'serveStatic_/favicon.ico',
+        target: 'cookieParser_/favicon.ico',
+        type: 'licensing' },
+      { source: 'cookieParser_/favicon.ico',
+        target: 'urlencodedParser_/favicon.ico',
+        type: 'licensing' },
+      { source: 'urlencodedParser_/favicon.ico',
+        target: 'jsonParser_/favicon.ico',
+        type: 'licensing' },
+      { source: 'jsonParser_/favicon.ico',
+        target: 'corsMiddleware_/favicon.ico',
+        type: 'licensing' },
+      { source: 'corsMiddleware_/favicon.ico',
+        target: 'profilerMiddleware_/favicon.ico',
+        type: 'licensing' },
+      { source: 'profilerMiddleware_/favicon.ico',
+        target: 'expressInit_/favicon.ico',
+        type: 'licensing' },
+      { source: 'expressInit_/favicon.ico',
+        target: 'query_/favicon.ico',
+        type: 'licensing' } ],
       formatAsPercentage: d3.format("%"),
       formatAsInteger: d3.format(",")
     };
@@ -745,7 +604,7 @@ class GraphContainer extends Component {
   render() {
     return (
       <div className="graphcontainer">
-        <div>
+        <div className="dashboard">
           <PieChart
             onClick={this.onClick}
             getColor={this.state.getColor}
@@ -763,21 +622,21 @@ class GraphContainer extends Component {
           />
         </div>
         <div>
-          <h2 style={{ fontWeight: "300" }}>Routes & Middleware Map</h2>
-          <Button variant="outlined" onClick={this.selectCollapsible}>
+          <h2>Routes & Middleware Map</h2>
+          <Button variant="outlined" color="primary" onClick={this.selectCollapsible}>
             Collapsible Graph
           </Button>
-          <Button variant="outlined" onClick={this.selectForce}>
+          <Button variant="outlined" color="primary" onClick={this.selectForce}>
             Force Graph
           </Button>
-          <Button variant="outlined" onClick={this.selectZoom}>
+          <Button variant="outlined" color="primary" onClick={this.selectZoom}>
             Zoom Graph
           </Button>
           <div
             className="routemap"
             style={{
               display: this.state.selectedGraph === "Force" ? "flex" : "none",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <RouteMap forceGraphData={this.state.forceGraphData} />
@@ -786,7 +645,7 @@ class GraphContainer extends Component {
             className="storyForceGraph"
             style={{
               display: this.state.selectedGraph === "Zoom" ? "flex" : "none",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <StoryForceGraph />
@@ -796,7 +655,7 @@ class GraphContainer extends Component {
             style={{
               display:
                 this.state.selectedGraph === "Collapsible" ? "flex" : "none",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <Collapsible />

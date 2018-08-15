@@ -7,15 +7,15 @@ import theme from '../theme.js';
 const App = () => (
   <MuiThemeProvider theme={theme}>
   <div id="main">
+      <h1 className="middleman">
+        <img alt="logo" src="../assets/middleman.png" width="150" height="150" />
+      </h1><br/>
+  </div>
     <div className="title">
-      <h2>
-        MiddleMan
-      </h2>
       <div className="graph-container">
         <GraphContainer />
       </div>
     </div>
-  </div>
  </MuiThemeProvider>
 
 );
