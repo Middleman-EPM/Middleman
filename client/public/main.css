@@ -1,14 +1,30 @@
+
+.test {
+  fill: #fff;
+}
+
+#pieChart {
+  color: #fff;
+}
+
 .App {
   text-align: center;
 }
 
+.middleman {
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
+}
+
 .title {
   text-align: center;
+  font-style: italic;
 }
 
 .link {
   fill: none;
-  stroke: #666;
+  stroke: #fff;
   stroke-width: 1.5px;
 }
 
@@ -25,15 +41,24 @@
 }
 
 /* circle {
-  fill: #ccc;
+  fill: rgb(174, 199, 232);
   stroke: #333;
   stroke-width: 1.5px;
 } */
 
+.xAxis {
+  fill: #fff;
+}
+
+.yAxis {
+  fill: #fff;
+}
+
 text {
-  font: 10px sans-serif;
+  font: 12px sans-serif;
   pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  color: black;
+  /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff; */
 }
 
 .rv-force__interactive .rv-force__node {
@@ -42,6 +67,7 @@ text {
 
 .rv-force__label {
   pointer-events: none;
+  color: #fff;
 }
 
 .rv-force__label::selection {
@@ -64,10 +90,31 @@ text {
 
 .node text {
   font: 12px sans-serif;
+  color: #fff;
 }
 
 .link {
   fill: none;
-  stroke: #ccc;
+  stroke: #fff;
   stroke-width: 2px;
+}
+
+body {
+  background-color: #778899;
+  color: #fff; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+}
+
+.graphcontainer {
+  justify-content: center;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
 }

@@ -8,10 +8,7 @@ export default class RouteMap extends Component {
     this.makeForceChart();
   }
 
-  makeForceChart = () => {
-
-    const { forceGraphData } = this.props;
-
+  makeForceChart = ({ forceGraphData } = this.props) => {
     const nodes = {};
     forceGraphData.forEach(link => {
 
@@ -22,13 +19,11 @@ export default class RouteMap extends Component {
         nodes[link.target] || (nodes[link.target] = { name: link.target });
 
     });
-    console.log(nodes)
 
     // Compute the distinct nodes from the links.
 
-
     const width = 710,
-      height = 500;
+      height = 450;
 
     const force = d3.layout
       .force()
@@ -83,6 +78,7 @@ export default class RouteMap extends Component {
       .enter()
       .append("circle")
       .attr("r", 6)
+      .attr("class", "test")
       .on("mouseover", this.props.onHover)
       .call(force.drag);
 
@@ -127,6 +123,6 @@ export default class RouteMap extends Component {
     }
   }
   render() {
-    return <svg id="forceGraph" style={{ border: "2px solid #333", borderRadius: ".2em" }} />
+    return <svg id="forceGraph" style={{ border: "2px solid #ccc", borderRadius: ".2em" }} />
   }
 }

@@ -12,8 +12,8 @@ export default class PieChart extends Component {
   }
   
   makePieChart = ({ onClick, getColor, data, formatAsPercentage, angle } = this.props) => {
-    const width = 400,
-      height = 400,
+    const width = 375,
+      height = 300,
       outerRadius = Math.min(width, height) / 2,
       innerRadius = outerRadius * 0.999,
       // for animation
@@ -94,7 +94,7 @@ export default class PieChart extends Component {
       .append('svg:text')
       .attr('dy', '.35em')
       .attr('text-anchor', 'middle')
-      .text('Revenue Share 2012')
+      // .text('Revenue Share 2012')
       .attr('class', 'title');
   }
   dsBarChartBasics = () => {
@@ -156,16 +156,16 @@ export default class PieChart extends Component {
         );
       })
       .attr('y', d => yScale(d.measure) + 14)
-      .text(d => formatAsInteger(d3.round(d.measure)))
+      .text(d => d.measure)
       .attr('class', 'yAxis');
 
-    svg
-      .selectAll('text.title') // target the text element(s) which has a title class defined
-      .attr('x', (width + margin.left + margin.right) / 2)
-      .attr('y', 15)
-      .attr('class', 'title')
-      .attr('text-anchor', 'middle')
-      .text(`${group}'s Sales Breakdown 2012`);
+    // svg
+    //   .selectAll('text.title') // target the text element(s) which has a title class defined
+    //   .attr('x', (width + margin.left + margin.right) / 2)
+    //   .attr('y', 15)
+    //   .attr('class', 'title')
+    //   .attr('text-anchor', 'middle')
+      // .text(`${group}'s Sales Breakdown PPPPPOoooopppppp`);
   }
   render() {
     return <svg id="pieChart"/>

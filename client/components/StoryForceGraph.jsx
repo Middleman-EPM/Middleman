@@ -16,13 +16,13 @@ const StoryForceGraph = () => {
           key={node.id}
           fill={scale(node.group)}
           node={{ ...node, radius: 7 }}
+          
         />
       ))}
       {lesMisJSON.links.map(link => (
         <ForceGraphLink
           key={`${link.source}=>${link.target}`}
-          link={{ ...link, value: 2 }}
-        />
+          link={{ ...link, value: 2 }}        />
       ))}
     </InteractiveForceGraph>
   );
