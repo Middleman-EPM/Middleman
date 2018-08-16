@@ -8,14 +8,14 @@ export default class BarChart extends Component {
 
   dsBarChartBasics = () => {
     const margin = { top: 30, right: 5, bottom: 20, left: 50 },
-      width = 500 - margin.left - margin.right,
+      width = 600 - margin.left - margin.right,
       height = 250 - margin.top - margin.bottom,
-      barPadding = 1;
+      barPadding = 2;
     return {
-      margin: margin,
-      width: width,
-      height: height,
-      barPadding: barPadding
+      margin,
+      width,
+      height,
+      barPadding
     };
   }
 
@@ -75,7 +75,7 @@ export default class BarChart extends Component {
       .data(data)
       .enter()
       .append('text')
-      .text(d => formatAsInteger(d3.round(d.measure)))
+      .text(d => (d.measure))
       .attr('text-anchor', 'middle')
       // Set x position to the left edge of each bar plus half the bar width
       .attr('x', (d, i) => {
@@ -117,13 +117,13 @@ export default class BarChart extends Component {
 
     // Title
 
-    svg
-      .append('text')
-      .attr('x', (width + margin.left + margin.right) / 2)
-      .attr('y', 15)
-      .attr('class', 'title')
-      .attr('text-anchor', 'middle')
-      .text('Overall Sales Breakdown 2012');
+    // svg
+    //   .append('text')
+    //   .attr('x', (width + margin.left + margin.right) / 2)
+    //   .attr('y', 15)
+    //   .attr('class', 'title')
+    //   .attr('text-anchor', 'middle')
+    //   .text('Overall Sales Breakdown 2012');
   //}
   }
 

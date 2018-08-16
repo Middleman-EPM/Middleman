@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Middleman-EPM/Middleman#readme",
   "dependencies": {
+    "@material-ui/core": "^1.5.0",
     "axios": "^0.18.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
@@ -40,8 +41,7 @@
     "prop-types": "^15.6.2",
     "rc-menu": "^7.2.6",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
