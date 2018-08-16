@@ -4,6 +4,7 @@ import PieChart from "../components/PieChart";
 import BarChart from "../components/BarChart";
 import StoryForceGraph from "../components/StoryForceGraph";
 import Collapsible from "../components/Collapsible";
+import axios from 'axios'
 import * as d3 from "../d3/d3";
 
 // button config
@@ -534,6 +535,8 @@ class GraphContainer extends Component {
 
   UNSAFE_componentWillMount() {
     this.setState({ selected: this.datasetBarChosen("/boardsid_post") });
+    axios.post('http://localhost:8000/data')
+    .then(result => console.log(result))
   }
   onHover = d => {
     this.setState({ hover: d });
@@ -599,6 +602,7 @@ class GraphContainer extends Component {
 
   componentDidMount() {
     //axios call to get data from database
+
   }
 
   render() {

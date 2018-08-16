@@ -30,8 +30,11 @@ app.use(express.static(DIST_DIR));
 app.get('/', (req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
-
+app.post('/data', (req, res) => res.send('server cached data'))
 app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
-app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
+app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes, (req, res) => {
+  app.locals[req.body.hash] = req.body.hash;
+  res.send('success');
+})
 
-app.listen(PORT, () => `Listening on port ${PORT}`);
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
