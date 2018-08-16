@@ -85,7 +85,7 @@ const controller = {
       }
     });
   },
-  addTimes: (req, res) => {
+  addTimes: (req, res, next) => {
     const routes = Object.keys(req.body.routes)
     let actualValues = '';
     routes.forEach((route, i) => {
@@ -114,7 +114,7 @@ const controller = {
       if (err) console.log('Error adding times into table');
       else {
         console.log('success')
-        res.send('success')
+        next();
       }
     });
   },
