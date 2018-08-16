@@ -67,7 +67,9 @@ const controller = {
         if (Array.isArray(req.body.routes[route][method]) && req.body.routes[route][method].length>0) {
           req.body.routes[route][method].forEach(middleware => {
             for(let key in middleware){
-              values += `('${key}', ${res.locals[method + '_' + res.locals[route + "_" + res.locals.hash_id]]}), `;
+              if(!key.includes('functions')){
+                values += `('${key}', ${res.locals[method + '_' + res.locals[route + "_" + res.locals.hash_id]]}), `;
+              }
             }
           });
         }
