@@ -32,6 +32,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
-app.post('/', controller.addHash, controller.addRoute) //, controller.addMiddleware, controller.addTimes);
+app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes) //, controller.addMiddleware, controller.addTimes);
 
 app.listen(PORT, () => `Listening on port ${PORT}`);
