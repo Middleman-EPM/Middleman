@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
-import logger from 'morgan';
+import morgan from 'morgan';
 import cors from 'cors';
 import controller from './db/controller'
 // import session from 'express-session';
@@ -22,7 +22,6 @@ const corsOption = {
 };
 
 app.use(cors(corsOption));
-app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -32,6 +31,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
-app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes) //, controller.addMiddleware, controller.addTimes);
+app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
+app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
 
 app.listen(PORT, () => `Listening on port ${PORT}`);
