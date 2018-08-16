@@ -3,13 +3,12 @@ const db = require('./connect');
 const controller = {
   addHash: (req, res, next) => {
     const query = 'INSERT INTO hash (api_key) VALUES($1) RETURNING *';
-    // console.log(req.body.hash)
     const values = [`${req.body.hash}`];
     db.query(query, values, (err, result) => {
       if(err) console.log('Error adding api_key to table')
       else {
         res.locals.hash_id = result.rows[0]._id;
-        // console.log('this is running in addHash ',result.rows[0]._id);
+
         next()
       }
     })
@@ -37,7 +36,6 @@ const controller = {
       let values = ''
       for(let method in req.body.routes[route]){
         if(!method.includes('functions')) {
-          // console.log(method)
           values += `('${method}', ${res.locals[route +"_"+res.locals.hash_id]}), `
         }
       }
@@ -48,13 +46,9 @@ const controller = {
     db.query(query, (err, result) => {
       if (err) console.log('Error adding methods to table')
       else {
-        // console.log('this is result.rows',result.rows)
         result.rows.forEach((e, i) => {
           res.locals[e.method + "_" + e.f_key] = e._id
-          // console.log(res.locals)
-
         })
-
         next()
       }
     })
@@ -62,8 +56,6 @@ const controller = {
   addMiddleware: (req, res, next) => {
     const routes = Object.keys(req.body.routes)
     let actualValues = '';
-    // console.log('im running in addMiddleware')
-    // console.log(res.locals)
     routes.forEach((route, i) => {
       let holdValue = ''
       for (let method in req.body.routes[route]) {
@@ -74,7 +66,6 @@ const controller = {
               for(let key in middleware){
                   values += `('${key}', ${res.locals[method + '_' + res.locals[route + "_" + res.locals.hash_id]]}), `;
                 }
-
             });
           }
         }
@@ -82,7 +73,6 @@ const controller = {
       }
       actualValues += holdValue;
     })
-    // console.log(actualValues)
     actualValues = actualValues.substring(0, actualValues.length -2);
     const query = `INSERT INTO middlewares (middleware, f_key) VALUES ` + actualValues + ` RETURNING *`;
     db.query(query, (err, result) => {

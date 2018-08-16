@@ -32,8 +32,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
-app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes) //, controller.addMiddleware, controller.addTimes);
-
-//, controller.addMiddleware, controller.addTimes);
+app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
 
 app.listen(PORT, () => `Listening on port ${PORT}`);
