@@ -30,7 +30,13 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: ['react']
+        }
+        }], 
+        
       },
       {
         test: /\.css$/,
@@ -42,7 +48,16 @@ module.exports = {
             loader: 'css-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
+      },
     ]
   },
   devServer: {

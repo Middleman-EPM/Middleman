@@ -31,6 +31,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
+app.get('/view_data:id', (req, res) => {
+  res.sendFile(path.join(DIST_DIR, 'index.html'));
+});
+
 app.post('/', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
 app.post('/test', controller.addHash, controller.addRoute, controller.addMethod, controller.addMiddleware, controller.addTimes)
 
