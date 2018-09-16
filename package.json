@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Middleman-EPM/Middleman#readme",
   "dependencies": {
     "@material-ui/core": "^1.5.0",
+    "@material-ui/icons": "^2.0.2",
     "axios": "^0.18.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
@@ -53,9 +54,11 @@
     "babel-preset-stage-1": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "react-hot-loader": "^4.3.4",
     "rimraf": "^2.6.2",
+    "url-loader": "^1.1.1",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"
   }
