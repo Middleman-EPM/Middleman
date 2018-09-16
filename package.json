@@ -44,7 +44,7 @@
     "rc-menu": "^7.2.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "url-loader": "^1.1.1"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

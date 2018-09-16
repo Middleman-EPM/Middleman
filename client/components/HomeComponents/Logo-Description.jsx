@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-//import mainLogo from '../../assets/'
-const mainLogo = require('../../assets/middleman.png')
 
-///need to talk to group about importing font awesome stuff
+// const mainLogo = require('../../assets/middleman.png')
+const mainLogo = require('/home/chris/Middleman/client/assets/middleman.png')
+
 
 class LogoAndDescription extends React.Component {
     constructor(props) {
