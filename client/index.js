@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/App';
+// import App from './components/App';
 //import AboutUs from './components/AboutUs'
 import HomeContainer from './containers/HomeContainer'
-// import Test from '../client/components/Test'    <Route path='/About_us' component={ AboutUs } />
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+import { createBrowserHistory } from 'history';
+import indexRoutes from './routes/index.jsx';
+import './assets/scss/material-kit-react.css?v=1.2.0';
+import { Router, Route, Switch } from 'react-router-dom';
 
-ReactDom.render((
-  <BrowserRouter>
+const hist = createBrowserHistory();
+
+ReactDom.render(
+  <Router history={hist}>
     <Switch>
-      <div>
-        <Route path='/view_data:id' component={ App } />
-        <Route exact path='/' component={ HomeContainer } />
-        <Redirect from='*' to='/' />
-      </div>  
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />;
+      })}
     </Switch>
-  </BrowserRouter>
-    ), document.getElementById('root'));
+  </Router>,
+  document.getElementById('root')
+);
