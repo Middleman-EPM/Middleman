@@ -3,7 +3,6 @@ import GraphContainer from '../containers/GraphContainer';
 // mui theme
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme.js';
-import Logo from './middleman.png';
 
 const App = () => (
   <MuiThemeProvider theme={theme}>
