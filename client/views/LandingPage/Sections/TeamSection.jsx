@@ -39,9 +39,9 @@ class TeamSection extends React.Component {
                   <img src={team1} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Gigi Hadid
+                  Jung Shin
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                  <small className={classes.smallTitle}>Scrum Master / Lead Developer</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
@@ -54,24 +54,10 @@ class TeamSection extends React.Component {
                 <CardFooter className={classes.justifyCenter}>
                   <Button
                     justIcon
-                    color="transparent"
+                    color="github"
                     className={classes.margin5}
                   >
-                    <i className={classes.socials + " fab fa-twitter"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-instagram"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-facebook"} />
+                    <i className={classes.socials + " fab fa-linkedin"} />
                   </Button>
                 </CardFooter>
               </Card>
@@ -82,9 +68,9 @@ class TeamSection extends React.Component {
                   <img src={team2} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Christian Louboutin
+                  Chris Saavedra
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
+                  <small className={classes.smallTitle}>Software Engineer</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
@@ -95,13 +81,6 @@ class TeamSection extends React.Component {
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
-                  <Button
-                    justIcon
-                    color="transparent"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-twitter"} />
-                  </Button>
                   <Button
                     justIcon
                     color="transparent"
