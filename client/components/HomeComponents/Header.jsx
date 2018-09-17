@@ -26,7 +26,7 @@ function Header(props) {
   return (
     <div className={classes.root}>
       <AppBar position="fixed" width ="100%">
-        <Toolbar style={{backgroundColor: 'red'}}>
+        <Toolbar style={{backgroundColor: 'black'}}>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>

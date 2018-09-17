@@ -28,6 +28,7 @@
     "axios": "^0.18.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
     "cors": "^2.8.4",
     "css-animation": "^1.4.1",
     "d3-force": "^1.1.0",
@@ -36,6 +37,7 @@
     "express": "^4.16.3",
     "file-loader": "^2.0.0",
     "global": "^4.3.2",
+    "history": "^4.7.2",
     "lodash.reduce": "^4.6.0",
     "mongoose": "^5.2.5",
     "morgan": "^1.9.0",
@@ -44,7 +46,8 @@
     "rc-menu": "^7.2.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "style-loader": "^0.23.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

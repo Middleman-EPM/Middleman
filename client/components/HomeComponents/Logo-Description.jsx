@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 // const mainLogo = require('../../assets/middleman.png')
-const mainLogo = require('/home/chris/Middleman/client/assets/middleman.png')
+const mainLogo = require('../../assets/middleman.png')
 
 
-class LogoAndDescription extends React.Component {
+class LogoAndDescription extends Component {
     constructor(props) {
         super(props);
-        this.state = {  
+        this.state = {
         };
       }
 
-      
+
       render() {
         const containerStyle = {
           // width: '100%',
@@ -22,7 +22,7 @@ class LogoAndDescription extends React.Component {
            marginTop: '10%',
           display: 'flex'
         }
-               
+
         const flexItem =  {
           flex: '50%'
         }
@@ -42,7 +42,7 @@ class LogoAndDescription extends React.Component {
             <div style = {flexItem} >
               <img src = {mainLogo} style = {imageStyle}/>
             </div>
-          </div>  
+          </div>
         );
     }
 }
